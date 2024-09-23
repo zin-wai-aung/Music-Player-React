@@ -1,15 +1,11 @@
-import React, { useEffect, useRef } from "react";
-import Controls from "./Controls";
-import SongDetails from "./SongDetails";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import useMusicStore from "../store/useMusicStore";
+import React, { useEffect, useRef } from 'react'
+import { HiOutlineMenuAlt3 } from 'react-icons/hi';
+import SongDetails from './SongDetails';
+import Controls from './Controls';
+import useMusicStore from '../store/useMusicStore';
 
 const MusicPlayer = () => {
-  const {
-    initAudio,
-    musicLists,
-    currentSongIndex,
-  } = useMusicStore();
+  const { initAudio, musicLists, currentSongIndex } = useMusicStore();
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -19,6 +15,7 @@ const MusicPlayer = () => {
       audio.src = musicLists[currentSongIndex].src; // Set the initial song
     }
   }, []);
+
 
   return (
     <div className="p-10 bg-gray-800 rounded-xl shadow-xl w-80">
@@ -37,10 +34,10 @@ const MusicPlayer = () => {
       {/* Hidden audio element */}
       <audio
         ref={audioRef}
-        onEnded={() => useMusicStore.getState().nextSong()} // Auto next on song end
+        onEnded={() => useMusicStore.getState().nextSong()} // Auto play next song if ending
       />
     </div>
   );
-};
+}
 
-export default MusicPlayer;
+export default MusicPlayer

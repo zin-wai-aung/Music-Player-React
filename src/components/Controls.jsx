@@ -1,20 +1,15 @@
-import React from "react";
-import {
-  FaPlay,
-  FaPause,
-  FaStepBackward,
-  FaStepForward,
-} from "react-icons/fa";
-import useMusicStore from "../store/useMusicStore";
+import React from 'react'
+import { FaPause, FaPlay, FaStepBackward, FaStepForward } from 'react-icons/fa';
+import useMusicStore from '../store/useMusicStore';
 import formatTime from "../utils/formatTime";
+
 
 const Controls = () => {
   const {
     isPlaying,
-    progress,
     currentTime,
-    duration,
     setCurrentTime,
+    duration,
     toggleSong,
     nextSong,
     prevSong,
@@ -43,12 +38,11 @@ const Controls = () => {
         </div>
         <div className=" flex items-center justify-between pt-2">
           {/* current time */}
-          <span>
-            {formatTime(currentTime)}
-          </span>
+          <span> {formatTime(currentTime)} </span>
           {/* max duration */}
           <span> {formatTime(duration)} </span>
         </div>
+
         <div
           className="absolute top-0 left-0 w-full h-full cursor-pointer"
           onMouseDown={(e) => handleProgressChange(e)} // Handle mouse drag
@@ -73,7 +67,7 @@ const Controls = () => {
               <FaPause className="text-black" />
             ) : (
               <FaPlay className="text-black" />
-            )}
+            )}{" "}
             <div className="absolute inset-0 rounded-full animate-pulse bg-gradient-to-r from-green-300 to-green-700 opacity-30 glow-ring"></div>
           </button>
         </div>
@@ -85,6 +79,6 @@ const Controls = () => {
       </div>
     </>
   );
-};
+}
 
-export default Controls;
+export default Controls

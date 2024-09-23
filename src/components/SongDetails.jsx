@@ -1,11 +1,12 @@
-import React, { useRef, useEffect, useState } from "react";
-import useMusicStore from "../store/useMusicStore";
+import React, { useEffect, useRef, useState } from 'react'
+import useMusicStore from '../store/useMusicStore';
 
 const SongDetails = () => {
-  const { currentSongIndex, musicLists, isPlaying } = useMusicStore(); // Access current song and playing state from Zustand store
+  const {currentSongIndex,musicLists,isPlaying} =  useMusicStore()
+
   const diskRef = useRef(null); // Reference to the spinning disk
 
-  const currentSong=musicLists[currentSongIndex]
+  const currentSong = musicLists[currentSongIndex];
 
   // Track rotation state
   const [rotation, setRotation] = useState(0);
@@ -27,6 +28,7 @@ const SongDetails = () => {
 
     return () => cancelAnimationFrame(animationId);
   }, [isPlaying]);
+
 
   return (
     <div className="flex flex-col items-center">
@@ -52,11 +54,11 @@ const SongDetails = () => {
 
       {/* Song title & artist */}
       <div className="text-center my-5">
-        <h2 className="text-xl font-bold text-white">{currentSong.title}</h2>
+        <h2 className="text-xl font-bold text-white"> {currentSong.title} </h2>
         <p className="text-gray-400">{currentSong.artist}</p>
       </div>
     </div>
   );
-};
+}
 
-export default SongDetails;
+export default SongDetails
