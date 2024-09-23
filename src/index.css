@@ -11,3 +11,25 @@
 .glow-ring {
   filter: blur(8px);
 }
+
+/* ======== Spinning CD Disk ========= */
+/* Slow spinning animation */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Adding animation for slow spinning */
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+    animation-play-state: running; /* When playing */
+}
+
+/* Paused state */
+.paused {
+  animation-play-state: paused; /* Pause the rotation */
+}
